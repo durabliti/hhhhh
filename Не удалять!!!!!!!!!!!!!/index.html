@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Расписание уроков</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header>
+    <h1>Расписание уроков</h1>
+  </header>
+
+  <!-- ==================== ПУБЛИЧНЫЙ СПИСОК ==================== -->
+  <section id="public-section">
+    <h2>Ближайшие уроки</h2>
+    <ul id="public-list">
+      <!-- Здесь будут уроки для гостей -->
+    </ul>
+  </section>
+
+  <!-- ==================== РЕДАКТОР (СКРЫТ) ==================== -->
+  <section id="editor-section" class="hidden">
+    <h2>Редактор уроков</h2>
+    <ul id="editor-list">
+      <!-- Здесь будут уроки с возможностью редактирования -->
+    </ul>
+    <div class="editor-controls">
+      <select id="new-day">
+        <option>Понедельник</option>
+        <option>Вторник</option>
+        <option>Среда</option>
+        <option>Четверг</option>
+        <option>Пятница</option>
+        <option>Суббота</option>
+        <option>Воскресенье</option>
+      </select>
+      <input type="time" id="new-start-time">
+      <input type="time" id="new-end-time">
+      <input type="text" id="new-lesson-name" placeholder="Название урока">
+      <button id="btn-add-lesson">Добавить урок</button>
+    </div>
+    <button id="btn-download-json">Скачать расписание</button>
+    <button id="btn-logout">Выйти</button>
+  </section>
+
+  <!-- ==================== POPUP УРОКА ==================== -->
+  <div id="overlay" class="hidden">
+    <div id="lesson-popup">
+      <span id="popup-close">&times;</span>
+      <h3 id="popup-lesson-name">Урок начинается!</h3>
+      <p id="popup-time">09:00 - 12:00</p>
+    </div>
+  </div>
+
+  <!-- ==================== СКРЫТАЯ КНОПКА АДМИНА ==================== -->
+  <div id="secret-admin" title="Тройной клик для входа в админку"></div>
+
+  <!-- ==================== ФОРМА ВХОДА АДМИНА ==================== -->
+  <div id="admin-login-popup" class="hidden">
+    <div id="admin-login-box">
+      <span id="admin-close">&times;</span>
+      <h3>Вход для администратора</h3>
+      <form id="admin-login-form">
+        <input type="password" id="admin-pass" autocomplete="new-password" placeholder="Введите пароль">
+        <button type="button" id="admin-login-btn">Войти</button>
+      </form>
+      <p class="error hidden" id="admin-error-msg">Неверный пароль</p>
+    </div>
+  </div>
+
+  <!-- ==================== ФОН ДЛЯ РАЗМЫТИЯ ПРИ УВЕДОМЛЕНИИ ==================== -->
+  <div id="blur-background" class="hidden"></div>
+
+  <!-- ==================== POPUP УРОКА С АНИМАЦИЕЙ ==================== -->
+  <div id="animated-popup" class="hidden">
+    <div id="animated-lesson-box">
+      <span id="animated-close">&times;</span>
+      <h2 id="animated-lesson-name">Математика</h2>
+      <p id="animated-lesson-day">Понедельник</p>
+      <p id="animated-lesson-time">09:00 - 10:30</p>
+      <div class="lesson-animation">
+        <!-- Здесь будут эффекты анимации (JS + CSS) -->
+        <div class="pulse-circle"></div>
+        <div class="sparkle"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ТАЙМЕРЫ И ХРАНИЛИЩЕ ДАННЫХ ==================== -->
+  <div id="hidden-timers" class="hidden">
+    <p id="lesson-start-timer"></p>
+    <p id="lesson-end-timer"></p>
+  </div>
+
+</body>
+</html>
